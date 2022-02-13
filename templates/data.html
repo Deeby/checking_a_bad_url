@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Журнал ввода пользователей</title>
+</head>
+<body>
+<table border="1">
+{% for i in data %}
+<tr>
+    <td>{{i.id}}</td>
+     <td>{{i.title}}</td>
+     <td>{{i.date}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+</body>
+</html>
