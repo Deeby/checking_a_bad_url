@@ -3,7 +3,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import joblib
 import pandas as pd
 clf = joblib.load('filename.pkl')
-data = pd.read_csv('/home/homi/Downloads/Using-machine-learning-to-detect-malicious-URLs-master/data/data.csv')
+data = pd.read_csv('data.csv')
 vectorizer = CountVectorizer()
 X = [ i for i in data.url]
 y = [ i for i in data.label]
