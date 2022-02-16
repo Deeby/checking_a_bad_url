@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Журнал ввода пользователей</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-<table border="1">
-{% for i in data %}
-<tr>
-    <td>{{i.id}}</td>
-     <td>{{i.title}}</td>
-     <td>{{i.date}}</td>
-</tr>
+<script>
 
-{% endfor %}
-
-</table>
+        $(document).ready(function () {
+        sendAjaxForm( "msg");
+        setInterval(function(){sendAjaxForm( "msg");}, 1000)
+        });
+        function sendAjaxForm( msg) {
+            $.ajax({
+                type: 'GET',
+                url: '/update',
+                success: function (response) {
+                    var json = jQuery.parseJSON(response);
+                    $('#' + msg).html(json.msg);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+<br>
+    <div id="msg"></div>
 
 
 </body>
